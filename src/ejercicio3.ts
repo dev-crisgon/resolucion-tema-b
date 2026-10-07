@@ -30,7 +30,7 @@ class ArchivoLog implements Registro {
   }
 }
 
-class DBLog implements Registro {
+class RegistroBaseDeDatos implements Registro {
   escribir(linea: string): void {
     console.log(`[DB] ${linea}`);
   }
@@ -54,5 +54,5 @@ const servicio = new ServicioNotificaciones(new ArchivoLog());
 servicio.notificar(new Email(), "Hola");
 servicio.notificar(new SMS(), "Hola");
 
-const servicio2 = new ServicioNotificaciones(new DBLog());
+const servicio2 = new ServicioNotificaciones(new RegistroBaseDeDatos());
 servicio2.notificar(new Email(), "Prueba");
